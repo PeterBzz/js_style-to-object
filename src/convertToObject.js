@@ -18,7 +18,9 @@ function convertToObject(sourceString) {
         return val2.trim();
       });
 
-      result[key] = value;
+      if (key && value) {
+        result[key] = value;
+      }
     });
 
   return result;
