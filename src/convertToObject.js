@@ -20,7 +20,7 @@ function convertToObject(sourceString) {
           return keyOrValue.trim();
         });
 
-      if (key && value) {
+      if (key && value && key !== '' && value !== '') {
         result[key] = value;
       }
     });
