@@ -10,13 +10,15 @@ function convertToObject(sourceString) {
 
   sourceString
     .split(';')
-    .filter((val) => {
-      return val.includes(':');
+    .filter((potentialKeyValuePair) => {
+      return potentialKeyValuePair.includes(':');
     })
-    .forEach((val) => {
-      const [key, value] = val.split(':').map((val2) => {
-        return val2.trim();
-      });
+    .forEach((potentialKeyValuePair) => {
+      const [key, value] = potentialKeyValuePair
+        .split(':')
+        .map((keyOrValue) => {
+          return keyOrValue.trim();
+        });
 
       if (key && value) {
         result[key] = value;
